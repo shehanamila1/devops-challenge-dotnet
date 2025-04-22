@@ -37,7 +37,9 @@ jobs:
         #run: dotnet build *.sln --configuration Release
 
       - name: Testing stage
-        run: dotnet test *.sln --no-build --verbosity normal
+        run: |
+         cd output/
+         dotnet test  --no-build --verbosity normal
         
       - name: view binary
         run: |
