@@ -38,7 +38,6 @@ jobs:
 
       - name: Testing stage
         run: |
-         cd output/
          dotnet test  --no-build --verbosity normal
         
       - name: view binary
