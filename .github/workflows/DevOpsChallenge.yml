@@ -2,9 +2,9 @@ name: DevOpsChallenge build and test
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "feature/devops-challenge-dotnet" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "feature/devops-challenge-dotnet" ]
     
 jobs:
   build:
