@@ -2,9 +2,9 @@ name: DevOpsChallenge build and test
 
 on:
   push:
-    branches: [ "feature/devops-challenge-dotnet" ]
+    branches: [ "dev/devops-challenge-dotnet" ]
   pull_request:
-    branches: [ "feature/devops-challenge-dotnet" ]
+    branches: [ "dev/devops-challenge-dotnet" ]
     
 jobs:
   build:
@@ -33,7 +33,7 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet.exe build *.sln --configuration Release
 
       - name: view binary
         run: |
