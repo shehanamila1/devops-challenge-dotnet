@@ -43,6 +43,7 @@ jobs:
         run: |
           ls output/
   docker:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Login to Docker Hub
