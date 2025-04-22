@@ -31,6 +31,8 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '5.0.x'
+
+      #add waiting stage for sql server
       - name: Wait for SQL Server
         run: |
           for i in {1..30}; do
