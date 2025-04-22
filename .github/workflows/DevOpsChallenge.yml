@@ -61,4 +61,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: SalesApi/app:latest
+          tags: shehanamila/salesapi:latest
