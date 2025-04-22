@@ -22,12 +22,8 @@ jobs:
 
       - name: Install dependecies
         run: |
-          wget https://www.openssl.org/source/openssl-1.1.1c.tar.gz
-          tar -xzvf openssl-1.1.1c.tar.gz
-          cd openssl-1.1.1c
-          ./config
-          make
-          sudo make install
+          sudo apt-get update
+          sudo apt-get install -y libssl1.1 || true
           
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
