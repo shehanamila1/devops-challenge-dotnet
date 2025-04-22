@@ -5,6 +5,9 @@ on:
     branches: [ "dev/devops-challenge-dotnet" ]
   pull_request:
     branches: [ "dev/devops-challenge-dotnet" ]
+
+env:
+  tag: ${{ github.run_id }}
     
 jobs:
   build:
@@ -64,4 +67,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: shehanamila/salesapi:latest
+          tags: shehanamila/salesapi:${{ env.tag }}
