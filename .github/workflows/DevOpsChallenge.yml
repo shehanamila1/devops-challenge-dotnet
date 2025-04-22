@@ -7,7 +7,7 @@ on:
     branches: [ "dev/devops-challenge-dotnet" ]
 
 env:
-  tag: ${{ github.run_id }}
+  tag: "1.0-${{ github.run_id }}-salesapi"
     
 jobs:
   build:
