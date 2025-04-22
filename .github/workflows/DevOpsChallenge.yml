@@ -32,7 +32,7 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build
+      - name: Build binary and package
         run: dotnet publish *.sln -o ./output
         #run: dotnet build *.sln --configuration Release
 
@@ -41,4 +41,4 @@ jobs:
         
       - name: view binary
         run: |
-          ls
+          ls output/
