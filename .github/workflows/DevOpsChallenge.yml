@@ -19,7 +19,7 @@ jobs:
       sqlserver:
         image: mcr.microsoft.com/mssql/server:2019-latest
         env:
-          SA_PASSWORD: "YourStrong!Passw0rd"
+          SA_PASSWORD: ${{ secrets.DEV_DB_CREDS }}
           ACCEPT_EULA: "Y"
         ports:
           - 1433:1433
@@ -36,8 +36,8 @@ jobs:
         run: dotnet restore
 
       - name: Build binary and package
-        run: dotnet publish *.sln -o ./output
-        #run: dotnet build *.sln --configuration Release
+        #run: dotnet publish *.sln -o ./output
+        run: dotnet build *.sln --no-restore
 
 #commented due to failures in code
       #- name: Testing stage
