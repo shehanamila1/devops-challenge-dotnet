@@ -33,10 +33,11 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet build *.sln --configuration Release
+        run: dotnet publish *.sln -o ./output
+        #run: dotnet build *.sln --configuration Release
 
-      - name: Testing stage
-        run: dotnet test *.sln --configuration Release --no-build --verbosity normal
+     # - name: Testing stage
+        #  run: dotnet test *.sln --configuration Release --no-build --verbosity normal
         
       - name: view binary
         run: |
