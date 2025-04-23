@@ -53,7 +53,7 @@ jobs:
 
       - name: Testing stage
         run: |
-          dotnet test  --no-build --verbosity detailed
+          dotnet test  --no-build --verbosity normal
 
   docker:
     needs: build
