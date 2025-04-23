@@ -51,7 +51,6 @@ jobs:
         #run: dotnet publish *.sln -o ./output
         run: dotnet build *.sln --no-restore
 
-#commented due to failures in code
       # - name: Testing stage
       #   run: |
       #     dotnet test  --no-build --verbosity normal
