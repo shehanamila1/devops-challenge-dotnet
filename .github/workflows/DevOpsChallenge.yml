@@ -44,12 +44,13 @@ jobs:
             sleep 10
           done
 
-  
       - name: Restore dependencies
         run: dotnet restore
-
-      - name: Install EF Tools
-        run: dotnet tool install --global dotnet-ef
+        
+      - name: Install EF Core CLI (v5)
+        run: dotnet tool install --global dotnet-ef --version 5.0.17
+        env:
+          DOTNET_ROOT: /usr/share/dotnet
 
       - name: Build binary and package
         run: dotnet build --no-restore
