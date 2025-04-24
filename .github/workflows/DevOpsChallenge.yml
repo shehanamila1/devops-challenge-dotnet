@@ -53,7 +53,7 @@ jobs:
         run: echo "/root/.dotnet/tools" >> $GITHUB_PATH
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore DevOpsChallenge.SalesApi.sln
 
       - name: Build binary and package
  #       run: dotnet build --no-restore
