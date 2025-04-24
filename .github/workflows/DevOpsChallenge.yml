@@ -58,6 +58,9 @@ jobs:
       - name: Build binary and package
         run: dotnet build --no-restore
 
+      - name: Apply Migrations
+        run: dotnet ef database update --project src/DevOpsChallenge.SalesApi.Database/DevOpsChallenge.SalesApi.Database.csproj
+
       # - name: Run EF Core Migrations
       #   run: dotnet ef database update --project src/DevOpsChallenge.SalesApi.Database/DatabaseContext.cs
       #   env:
