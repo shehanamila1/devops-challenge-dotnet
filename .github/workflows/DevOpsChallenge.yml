@@ -44,11 +44,12 @@ jobs:
             sleep 10
           done
 
-      - name: Install EF Tools
-        run: dotnet tool install dotnet-ef
   
       - name: Restore dependencies
         run: dotnet restore
+
+      - name: Install EF Tools
+        run: dotnet tool install --global dotnet-ef
 
       - name: Build binary and package
         run: dotnet build --no-restore
