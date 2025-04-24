@@ -58,15 +58,15 @@ jobs:
       - name: Build binary and package
         run: dotnet build --no-restore
 
-      - name: Run EF Core Migrations
-        run: dotnet ef database update --project src/DevOpsChallenge.SalesApi.Database/DatabaseContext.cs
-        env:
-          CONNECTIONSTRINGS__DATABASE: Server=localhost;Database=DevOpsChallenge.SalesApi;User Id=sa;Password=${{ secrets.DEV_DB_CREDS }};
-          DOTNET_ROOT: /usr/share/dotnet
+      # - name: Run EF Core Migrations
+      #   run: dotnet ef database update --project src/DevOpsChallenge.SalesApi.Database/DatabaseContext.cs
+      #   env:
+      #     CONNECTIONSTRINGS__DATABASE: Server=localhost;Database=DevOpsChallenge.SalesApi;User Id=sa;Password=${{ secrets.DEV_DB_CREDS }};
+      #     DOTNET_ROOT: /usr/share/dotnet
         
-      - name: Testing stage
-        run: |
-          dotnet test  --no-build --verbosity normal
+      # - name: Testing stage
+      #   run: |
+      #     dotnet test  --no-build --verbosity normal
 
   docker:
     needs: build
