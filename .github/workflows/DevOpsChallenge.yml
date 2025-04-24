@@ -8,7 +8,7 @@ on:
 
 env:
   tag: "1.0-${{ github.run_id }}-salesapi"
-  ConnectionStrings__DefaultConnection: "Server=localhost;Database=MyDb;User Id=sa;Password=${{ secrets.DEV_DB_CREDS }};"
+  CONNECTIONSTRINGS__DATABASE: "Server=localhost;Database=MyDb;User Id=sa;Password=${{ secrets.DEV_DB_CREDS }};"
 jobs:
   build:
     runs-on: ubuntu-latest
