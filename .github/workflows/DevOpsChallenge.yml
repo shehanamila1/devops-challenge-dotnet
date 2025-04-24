@@ -43,9 +43,6 @@ jobs:
             echo "Waiting for SQL Server... ($i/30)";
             sleep 10
           done
-
-      - name: Restore dependencies
-        run: dotnet restore
         
       - name: Install EF Core CLI (v5)
         run: dotnet tool install --global dotnet-ef --version 5.0.17
@@ -54,6 +51,9 @@ jobs:
 
       - name: Add EF Tool to PATH
         run: echo "/root/.dotnet/tools" >> $GITHUB_PATH
+
+      - name: Restore dependencies
+        run: dotnet restore
 
       - name: Build binary and package
         run: dotnet build --no-restore
