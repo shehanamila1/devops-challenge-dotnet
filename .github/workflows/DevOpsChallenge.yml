@@ -59,7 +59,7 @@ jobs:
         run: dotnet build --no-restore
 
       - name: Run EF Core Migrations
-        run: dotnet ef database update --project src/DevOpsChallenge.SalesApi.Database/DevOpsChallenge.SalesApi.Database.csproj
+        run: dotnet ef database update --project src/DevOpsChallenge.SalesApi.Database/DatabaseContext.cs
         env:
           CONNECTIONSTRINGS__DATABASE: Server=localhost;Database=DevOpsChallenge.SalesApi;User Id=sa;Password=${{ secrets.DEV_DB_CREDS }};
         
