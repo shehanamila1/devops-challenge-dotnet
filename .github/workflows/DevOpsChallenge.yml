@@ -53,8 +53,6 @@ jobs:
 
       - name: Run EF Core migrations
         run: dotnet ef database update --project src/DevOpsChallenge.SalesApi/DevOpsChallenge.SalesApi.csproj
-        env:
-          DOTNET_ROOT: /usr/share/dotnet
 
       - name: Testing stage
         run: |
