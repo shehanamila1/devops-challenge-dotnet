@@ -52,11 +52,17 @@ jobs:
         env:
           DOTNET_ROOT: /usr/share/dotnet
 
+      - name: Add EF Tool to PATH
+        run: echo "/root/.dotnet/tools" >> $GITHUB_PATH
+
       - name: Build binary and package
         run: dotnet build --no-restore
 
-      - name: Run EF Core migrations
+      - name: Run EF Core Migrations
         run: dotnet ef database update --project src/DevOpsChallenge.SalesApi.Database/DevOpsChallenge.SalesApi.Database.csproj
+        env:
+          CONNECTIONSTRINGS__DATABASE: Server=localhost;Database=DevOpsChallenge.SalesApi;User Id=sa;Password=${{ secrets.DEV_DB_CREDS }};
+        
       - name: Testing stage
         run: |
           dotnet test  --no-build --verbosity normal
