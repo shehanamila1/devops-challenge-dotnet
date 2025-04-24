@@ -45,19 +45,16 @@ jobs:
           done
 
       - name: Install EF Tools
-        run: dotnet tool install --global dotnet-ef
+        run: dotnet tool install dotnet-ef
   
       - name: Restore dependencies
         run: dotnet restore
 
       - name: Build binary and package
-        #run: dotnet publish *.sln -o ./output
-        #run: dotnet build *.sln --no-restore
         run: dotnet build --no-restore
 
       - name: Run EF Core migrations
-        run: dotnet ef database update --project src/DevOpsChallenge.SalesApi/DevOpsChallenge.SalesApi.csproj
-
+        run: dotnet ef database update --project src/DevOpsChallenge.SalesApi.Database/DevOpsChallenge.SalesApi.Database.csproj
       - name: Testing stage
         run: |
           dotnet test  --no-build --verbosity normal
