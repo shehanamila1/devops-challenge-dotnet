@@ -51,9 +51,9 @@ jobs:
         #run: dotnet publish *.sln -o ./output
         run: dotnet build *.sln --no-restore
 
-      # - name: Testing stage
-      #   run: |
-      #     dotnet test  --no-build --verbosity normal
+      - name: Testing stage
+        run: |
+          dotnet test  --no-build --verbosity normal
 
   docker:
     needs: build
